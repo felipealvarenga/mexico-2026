@@ -91,27 +91,121 @@ body {
   z-index: 100;
   background: var(--night);
   display: flex;
+  align-items: center;
   overflow-x: auto;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
   box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  padding: 0 8px;
+  gap: 2px;
 }
 .nav-tabs::-webkit-scrollbar { display: none; }
+
+/* Group container */
+.nav-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 1px;
+}
+
+/* Separator dot between groups */
+.nav-sep {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  margin: 0 6px;
+  flex-shrink: 0;
+}
+
+/* Group label (Tulum, Holbox, etc.) */
+.nav-label {
+  flex-shrink: 0;
+  padding: 12px 10px 12px 12px;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.nav-label:hover { color: rgba(255,255,255,0.7); }
+
+/* Day pill */
 .nav-tab {
   flex-shrink: 0;
-  padding: 14px 18px;
-  color: rgba(255,255,255,0.6);
+  padding: 6px 0;
   text-decoration: none;
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.nav-tab .day-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  transition: all 0.2s;
+}
+
+/* Tulum days - teal */
+.nav-group.tulum .day-pill {
+  background: rgba(13,115,119,0.25);
+  color: rgba(255,255,255,0.6);
+}
+.nav-group.tulum .nav-tab:hover .day-pill,
+.nav-group.tulum .nav-tab.active .day-pill {
+  background: var(--teal);
+  color: white;
+  box-shadow: 0 2px 8px rgba(13,115,119,0.4);
+}
+
+/* Holbox days - green */
+.nav-group.holbox .day-pill {
+  background: rgba(26,107,75,0.25);
+  color: rgba(255,255,255,0.6);
+}
+.nav-group.holbox .nav-tab:hover .day-pill,
+.nav-group.holbox .nav-tab.active .day-pill {
+  background: #1A6B4B;
+  color: white;
+  box-shadow: 0 2px 8px rgba(26,107,75,0.4);
+}
+
+/* Cancún days - blue */
+.nav-group.cancun .day-pill {
+  background: rgba(11,79,108,0.25);
+  color: rgba(255,255,255,0.6);
+}
+.nav-group.cancun .nav-tab:hover .day-pill,
+.nav-group.cancun .nav-tab.active .day-pill {
+  background: #0B4F6C;
+  color: white;
+  box-shadow: 0 2px 8px rgba(11,79,108,0.4);
+}
+
+/* Utility nav items (budget, logistics, etc.) */
+.nav-util {
+  flex-shrink: 0;
+  padding: 10px 10px;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  font-size: 0.95rem;
   transition: all 0.2s;
   white-space: nowrap;
+  line-height: 1;
 }
-.nav-tab:hover, .nav-tab.active {
-  color: white;
-  border-bottom-color: var(--gold);
+.nav-util:hover, .nav-util.active {
+  color: rgba(255,255,255,0.9);
+  transform: scale(1.1);
 }
 
 /* ===== CONTAINER ===== */
@@ -434,7 +528,10 @@ table .grand-row td {
   .insta-grid { grid-template-columns: 1fr; }
   table { font-size: 0.8rem; }
   table th, table td { padding: 8px 10px; }
-  .nav-tab { padding: 12px 14px; font-size: 0.76rem; }
+  .nav-label { padding: 10px 6px 10px 8px; font-size: 0.62rem; }
+  .nav-tab .day-pill { width: 28px; height: 28px; font-size: 0.65rem; border-radius: 8px; }
+  .nav-sep { margin: 0 4px; }
+  .nav-util { padding: 8px 7px; font-size: 0.85rem; }
 }
 
 /* ===== COLLAPSIBLE ===== */
@@ -469,13 +566,33 @@ details[open] summary::before { transform: rotate(90deg); }
 
 <!-- NAV -->
 <nav class="nav-tabs" id="nav">
-  <a class="nav-tab" href="#tulum">🏝 Tulum</a>
-  <a class="nav-tab" href="#holbox">🦩 Holbox</a>
-  <a class="nav-tab" href="#cancun">🏖 Cancún</a>
-  <a class="nav-tab" href="#budget">💰 Orçamento</a>
-  <a class="nav-tab" href="#logistics">🚗 Logística</a>
-  <a class="nav-tab" href="#checklist">☑️ Reservas</a>
-  <a class="nav-tab" href="#links">📍 Links</a>
+  <div class="nav-group tulum">
+    <a class="nav-label" href="#tulum">🏝 Tulum</a>
+    <a class="nav-tab" href="#dia1"><span class="day-pill">D1</span></a>
+    <a class="nav-tab" href="#dia2"><span class="day-pill">D2</span></a>
+    <a class="nav-tab" href="#dia3"><span class="day-pill">D3</span></a>
+    <a class="nav-tab" href="#dia4"><span class="day-pill">D4</span></a>
+    <a class="nav-tab" href="#dia5"><span class="day-pill">D5</span></a>
+  </div>
+  <div class="nav-sep"></div>
+  <div class="nav-group holbox">
+    <a class="nav-label" href="#holbox">🦩 Holbox</a>
+    <a class="nav-tab" href="#dia6"><span class="day-pill">D6</span></a>
+    <a class="nav-tab" href="#dia7"><span class="day-pill">D7</span></a>
+    <a class="nav-tab" href="#dia8"><span class="day-pill">D8</span></a>
+  </div>
+  <div class="nav-sep"></div>
+  <div class="nav-group cancun">
+    <a class="nav-label" href="#cancun">🏖 Cancún</a>
+    <a class="nav-tab" href="#dia9"><span class="day-pill">D9</span></a>
+    <a class="nav-tab" href="#dia10"><span class="day-pill">D10</span></a>
+    <a class="nav-tab" href="#dia11"><span class="day-pill">D11</span></a>
+  </div>
+  <div class="nav-sep"></div>
+  <a class="nav-util" href="#budget" title="Orçamento">💰</a>
+  <a class="nav-util" href="#logistics" title="Logística">🚗</a>
+  <a class="nav-util" href="#checklist" title="Reservas">☑️</a>
+  <a class="nav-util" href="#links" title="Links">📍</a>
 </nav>
 
 <div class="container">
@@ -499,7 +616,7 @@ details[open] summary::before { transform: rotate(90deg); }
   </div>
 
   <!-- DAY 1 -->
-  <div class="day-card">
+  <div class="day-card" id="dia1">
     <div class="day-header">
       <div class="day-num">DIA 1 ✈️ Sexta, 20 de fevereiro</div>
       <div class="day-theme">Chegada + Check-in + Kaan Luum</div>
@@ -560,7 +677,7 @@ details[open] summary::before { transform: rotate(90deg); }
   </div>
 
   <!-- DAY 2 -->
-  <div class="day-card">
+  <div class="day-card" id="dia2">
     <div class="day-header">
       <div class="day-num">DIA 2 🏛️ Sábado, 21 de fevereiro</div>
       <div class="day-theme">Ruínas + Cultura + Pôr do Sol</div>
@@ -615,7 +732,7 @@ details[open] summary::before { transform: rotate(90deg); }
   </div>
 
   <!-- DAY 3 -->
-  <div class="day-card">
+  <div class="day-card" id="dia3">
     <div class="day-header">
       <div class="day-num">DIA 3 🌿 Domingo, 22 de fevereiro</div>
       <div class="day-theme">Sian Ka'an + Casa Malca + NÜ</div>
@@ -663,7 +780,7 @@ details[open] summary::before { transform: rotate(90deg); }
   </div>
 
   <!-- DAY 4 -->
-  <div class="day-card">
+  <div class="day-card" id="dia4">
     <div class="day-header">
       <div class="day-num">DIA 4 💧 Segunda, 23 de fevereiro</div>
       <div class="day-theme">Gran Cenote + Rio Secreto + Hartwood</div>
@@ -718,7 +835,7 @@ details[open] summary::before { transform: rotate(90deg); }
   </div>
 
   <!-- DAY 5 -->
-  <div class="day-card">
+  <div class="day-card" id="dia5">
     <div class="day-header">
       <div class="day-num">DIA 5 🐢 Terça, 24 de fevereiro</div>
       <div class="day-theme">Cenotes + Akumal Tartarugas + Despedida</div>
@@ -791,7 +908,7 @@ details[open] summary::before { transform: rotate(90deg); }
   </div>
 
   <!-- DAY 6 -->
-  <div class="day-card">
+  <div class="day-card" id="dia6">
     <div class="day-header" style="background:#1A6B4B;">
       <div class="day-num">DIA 6 🚗 Quarta, 25 de fevereiro</div>
       <div class="day-theme">Transfer Tulum → Holbox</div>
@@ -836,7 +953,7 @@ details[open] summary::before { transform: rotate(90deg); }
   </div>
 
   <!-- DAY 7 -->
-  <div class="day-card">
+  <div class="day-card" id="dia7">
     <div class="day-header" style="background:#1A6B4B;">
       <div class="day-num">DIA 7 🦩 Quinta, 26 de fevereiro</div>
       <div class="day-theme">3 Ilhas + Flamingos</div>
@@ -868,7 +985,7 @@ details[open] summary::before { transform: rotate(90deg); }
   </div>
 
   <!-- DAY 8 -->
-  <div class="day-card">
+  <div class="day-card" id="dia8">
     <div class="day-header" style="background:#1A6B4B;">
       <div class="day-num">DIA 8 🛶 Sexta, 27 de fevereiro</div>
       <div class="day-theme">Kayak Mangues + Bioluminescência</div>
@@ -927,7 +1044,7 @@ details[open] summary::before { transform: rotate(90deg); }
   </div>
 
   <!-- DAY 9 -->
-  <div class="day-card">
+  <div class="day-card" id="dia9">
     <div class="day-header" style="background:#0B4F6C;">
       <div class="day-num">DIA 9 ⛴️ Sábado, 28 de fevereiro</div>
       <div class="day-theme">Transfer Holbox → Cancún</div>
@@ -953,7 +1070,7 @@ details[open] summary::before { transform: rotate(90deg); }
   </div>
 
   <!-- DAY 10 -->
-  <div class="day-card">
+  <div class="day-card" id="dia10">
     <div class="day-header" style="background:#0B4F6C;">
       <div class="day-num">DIA 10 ☀️ Domingo, 1 de março</div>
       <div class="day-theme">Dia Livre</div>
@@ -973,7 +1090,7 @@ details[open] summary::before { transform: rotate(90deg); }
   </div>
 
   <!-- DAY 11 -->
-  <div class="day-card">
+  <div class="day-card" id="dia11">
     <div class="day-header" style="background:#0B4F6C;">
       <div class="day-num">DIA 11 ✈️ Segunda, 2 de março</div>
       <div class="day-theme">Volta pra casa</div>
@@ -1204,11 +1321,11 @@ details[open] summary::before { transform: rotate(90deg); }
 </div>
 
 <script>
-// Smooth scroll for nav
-document.querySelectorAll('.nav-tab').forEach(tab => {
-  tab.addEventListener('click', e => {
+// Smooth scroll for all nav links
+document.querySelectorAll('.nav-tab, .nav-label, .nav-util').forEach(link => {
+  link.addEventListener('click', e => {
     e.preventDefault();
-    const target = document.querySelector(tab.getAttribute('href'));
+    const target = document.querySelector(link.getAttribute('href'));
     if (target) {
       const navHeight = document.querySelector('.nav-tabs').offsetHeight;
       const top = target.offsetTop - navHeight;
@@ -1217,19 +1334,29 @@ document.querySelectorAll('.nav-tab').forEach(tab => {
   });
 });
 
-// Active tab on scroll
-const sections = ['tulum','holbox','cancun','budget','logistics','checklist','links'];
-const tabs = document.querySelectorAll('.nav-tab');
+// Active tab on scroll — tracks days + utility sections
+const allSections = [
+  'dia1','dia2','dia3','dia4','dia5',
+  'dia6','dia7','dia8',
+  'dia9','dia10','dia11',
+  'budget','logistics','checklist','links'
+];
+const allLinks = document.querySelectorAll('.nav-tab, .nav-util');
 window.addEventListener('scroll', () => {
   const navH = document.querySelector('.nav-tabs').offsetHeight + 50;
   let current = '';
-  sections.forEach(id => {
+  allSections.forEach(id => {
     const el = document.getElementById(id);
     if (el && el.offsetTop - navH <= window.scrollY) current = id;
   });
-  tabs.forEach(t => {
+  allLinks.forEach(t => {
     t.classList.toggle('active', t.getAttribute('href') === '#' + current);
   });
+  // Also scroll active pill into view in nav
+  const activeEl = document.querySelector('.nav-tabs .active');
+  if (activeEl) {
+    activeEl.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+  }
 });
 </script>
 </body>
