@@ -261,7 +261,11 @@ body {
   background: var(--night);
   color: white;
   padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+.day-header-left { flex: 1; }
 .day-header .day-num {
   font-family: 'Playfair Display', serif;
   font-size: 1.3rem;
@@ -271,6 +275,17 @@ body {
   font-size: 0.85rem;
   opacity: 0.7;
   margin-top: 2px;
+}
+.day-cost {
+  background: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.85);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 12px;
 }
 .day-body { padding: 24px; }
 
@@ -616,8 +631,7 @@ details[open] summary::before { transform: rotate(90deg); }
   <!-- DAY 1 -->
   <div class="day-card" id="dia1">
     <div class="day-header">
-      <div class="day-num">DIA 1 ✈️ Sexta, 20 de fevereiro</div>
-      <div class="day-theme">Chegada + Check-in + Kaan Luum</div>
+      <div class="day-header-left"><div class="day-num">DIA 1 ✈️ Sexta, 20 de fevereiro</div><div class="day-theme">Chegada + Check-in + Kaan Luum</div></div><div class="day-cost">~R$1.000</div>
     </div>
     <div class="day-body">
       <div class="activity">
@@ -677,8 +691,7 @@ details[open] summary::before { transform: rotate(90deg); }
   <!-- DAY 2 -->
   <div class="day-card" id="dia2">
     <div class="day-header">
-      <div class="day-num">DIA 2 🏛️ Sábado, 21 de fevereiro</div>
-      <div class="day-theme">Ruínas + Cultura + Pôr do Sol</div>
+      <div class="day-header-left"><div class="day-num">DIA 2 🏛️ Sábado, 21 de fevereiro</div><div class="day-theme">Ruínas + Cultura + Pôr do Sol</div></div><div class="day-cost">~R$2.000</div>
     </div>
     <div class="day-body">
       <div class="activity">
@@ -732,8 +745,7 @@ details[open] summary::before { transform: rotate(90deg); }
   <!-- DAY 3 -->
   <div class="day-card" id="dia3">
     <div class="day-header">
-      <div class="day-num">DIA 3 🌿 Domingo, 22 de fevereiro</div>
-      <div class="day-theme">Sian Ka'an + Casa Malca + NÜ</div>
+      <div class="day-header-left"><div class="day-num">DIA 3 🌿 Domingo, 22 de fevereiro</div><div class="day-theme">Sian Ka'an + Casa Malca + NÜ</div></div><div class="day-cost">~R$2.500</div>
     </div>
     <div class="day-body">
       <div class="warn">⚠ Previsão: tempestades à tarde (58% chuva). Tour de manhã termina ~13h, antes da chuva.<br>
@@ -780,8 +792,7 @@ details[open] summary::before { transform: rotate(90deg); }
   <!-- DAY 4 -->
   <div class="day-card" id="dia4">
     <div class="day-header">
-      <div class="day-num">DIA 4 💧 Segunda, 23 de fevereiro</div>
-      <div class="day-theme">Gran Cenote + Rio Secreto + Hartwood</div>
+      <div class="day-header-left"><div class="day-num">DIA 4 💧 Segunda, 23 de fevereiro</div><div class="day-theme">Gran Cenote + Rio Secreto + Hartwood</div></div><div class="day-cost">~R$2.500</div>
     </div>
     <div class="day-body">
       <div class="confirmed" style="margin-bottom:12px;">✅ Segunda = Gran Cenote VAZIO. Melhor dia da semana!</div>
@@ -835,8 +846,7 @@ details[open] summary::before { transform: rotate(90deg); }
   <!-- DAY 5 -->
   <div class="day-card" id="dia5">
     <div class="day-header">
-      <div class="day-num">DIA 5 🐢 Terça, 24 de fevereiro</div>
-      <div class="day-theme">Cenotes + Akumal Tartarugas + Despedida</div>
+      <div class="day-header-left"><div class="day-num">DIA 5 🐢 Terça, 24 de fevereiro</div><div class="day-theme">Cenotes + Akumal Tartarugas + Despedida</div></div><div class="day-cost">~R$2.500</div>
     </div>
     <div class="day-body">
       <div class="activity-desc" style="margin-bottom:12px;font-style:italic;">Pós-frente fria: mar mais calmo, ideal para tartarugas. ~24°C, parcialmente nublado.</div>
@@ -908,8 +918,7 @@ details[open] summary::before { transform: rotate(90deg); }
   <!-- DAY 6 -->
   <div class="day-card" id="dia6">
     <div class="day-header" style="background:#1A6B4B;">
-      <div class="day-num">DIA 6 🚗 Quarta, 25 de fevereiro</div>
-      <div class="day-theme">Transfer Tulum → Holbox</div>
+      <div class="day-header-left"><div class="day-num">DIA 6 🚗 Quarta, 25 de fevereiro</div><div class="day-theme">Transfer Tulum → Holbox</div></div><div class="day-cost">~R$800</div>
     </div>
     <div class="day-body">
       <div class="activity">
@@ -953,8 +962,7 @@ details[open] summary::before { transform: rotate(90deg); }
   <!-- DAY 7 -->
   <div class="day-card" id="dia7">
     <div class="day-header" style="background:#1A6B4B;">
-      <div class="day-num">DIA 7 🦩 Quinta, 26 de fevereiro</div>
-      <div class="day-theme">3 Ilhas + Flamingos</div>
+      <div class="day-header-left"><div class="day-num">DIA 7 🦩 Quinta, 26 de fevereiro</div><div class="day-theme">3 Ilhas + Flamingos</div></div><div class="day-cost">~R$800</div>
     </div>
     <div class="day-body">
       <div class="activity">
@@ -985,8 +993,7 @@ details[open] summary::before { transform: rotate(90deg); }
   <!-- DAY 8 -->
   <div class="day-card" id="dia8">
     <div class="day-header" style="background:#1A6B4B;">
-      <div class="day-num">DIA 8 🛶 Sexta, 27 de fevereiro</div>
-      <div class="day-theme">Kayak Mangues + Bioluminescência</div>
+      <div class="day-header-left"><div class="day-num">DIA 8 🛶 Sexta, 27 de fevereiro</div><div class="day-theme">Kayak Mangues + Bioluminescência</div></div><div class="day-cost">~R$1.100</div>
     </div>
     <div class="day-body">
       <div class="activity">
@@ -1044,8 +1051,7 @@ details[open] summary::before { transform: rotate(90deg); }
   <!-- DAY 9 -->
   <div class="day-card" id="dia9">
     <div class="day-header" style="background:#0B4F6C;">
-      <div class="day-num">DIA 9 ⛴️ Sábado, 28 de fevereiro</div>
-      <div class="day-theme">Transfer Holbox → Cancún</div>
+      <div class="day-header-left"><div class="day-num">DIA 9 ⛴️ Sábado, 28 de fevereiro</div><div class="day-theme">Transfer Holbox → Cancún</div></div><div class="day-cost">~R$700</div>
     </div>
     <div class="day-body">
       <div class="activity">
@@ -1070,8 +1076,7 @@ details[open] summary::before { transform: rotate(90deg); }
   <!-- DAY 10 -->
   <div class="day-card" id="dia10">
     <div class="day-header" style="background:#0B4F6C;">
-      <div class="day-num">DIA 10 ☀️ Domingo, 1 de março</div>
-      <div class="day-theme">Dia Livre</div>
+      <div class="day-header-left"><div class="day-num">DIA 10 ☀️ Domingo, 1 de março</div><div class="day-theme">Dia Livre</div></div><div class="day-cost">~R$500</div>
     </div>
     <div class="day-body">
       <div class="activity">
@@ -1090,8 +1095,7 @@ details[open] summary::before { transform: rotate(90deg); }
   <!-- DAY 11 -->
   <div class="day-card" id="dia11">
     <div class="day-header" style="background:#0B4F6C;">
-      <div class="day-num">DIA 11 ✈️ Segunda, 2 de março</div>
-      <div class="day-theme">Volta pra casa</div>
+      <div class="day-header-left"><div class="day-num">DIA 11 ✈️ Segunda, 2 de março</div><div class="day-theme">Volta pra casa</div></div><div class="day-cost">✈️</div>
     </div>
     <div class="day-body">
       <div class="activity">
