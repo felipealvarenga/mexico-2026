@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mexico 2026 — Felipe & Flávia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sand: #f5f0e8;
+  --sand-dark: #e8dfd2;
+  --jungle: #1a3a2a;
+  --jungle-light: #2d5a3f;
+  --turquoise: #2cb8a0;
+  --turquoise-soft: #e0f5f0;
+  --coral: #e8735a;
+  --coral-soft: #fce8e3;
+  --gold: #c9a84c;
+  --gold-soft: #faf3e0;
+  --night: #0f1a14;
+  --text: #2a2a2a;
+  --text-light: #6b6b6b;
+  --white: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background: var(--sand);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--jungle) 0%, #0d2b1e 40%, #1a4a35 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(44,184,160,0.15) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 80%, rgba(201,168,76,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to top, var(--sand), transparent);
+}
+
+.hero-flag { font-size: 3rem; margin-bottom: 1rem; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  color: var(--white);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.4s forwards;
+}
+.hero-sub {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: var(--turquoise);
+  margin-top: 0.75rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.6s forwards;
+}
+.hero-details {
+  color: rgba(255,255,255,0.6);
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.8s forwards;
+}
+.hero-names {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 1s forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(245,240,232,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-inner {
+  display: flex;
+  gap: 0.25rem;
+  max-width: 900px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.4rem 0.75rem;
+  border-radius: 100px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.nav a:hover, .nav a.active {
+  background: var(--jungle);
+  color: var(--white);
+}
+
+/* SECTIONS */
+.container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* DESTINATION HEADER */
+.dest-header {
+  padding: 4rem 0 2rem;
+  text-align: center;
+}
+
+.dest-header .dest-emoji { font-size: 2.5rem; }
+.dest-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--jungle);
+  margin-top: 0.5rem;
+}
+.dest-header .dest-meta {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+.dest-header .dest-hotel {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.25rem;
+  background: var(--white);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--jungle);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* DAY CARD */
+.day-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.day-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+}
+
+.day-card.tulum::before { background: var(--turquoise); }
+.day-card.holbox::before { background: var(--coral); }
+.day-card.cancun::before { background: var(--gold); }
+
+.day-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.day-number {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.tulum .day-number { background: var(--turquoise); }
+.holbox .day-number { background: var(--coral); }
+.cancun .day-number { background: var(--gold); }
+
+.day-title-group { flex: 1; }
+.day-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  color: var(--jungle);
+  line-height: 1.2;
+}
+.day-date {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 0.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.day-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+/* TIMELINE ITEMS */
+.tl-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  align-items: flex-start;
+}
+
+.tl-time {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-light);
+  min-width: 58px;
+  padding-top: 2px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.tl-content { flex: 1; }
+.tl-content strong {
+  color: var(--jungle);
+  font-weight: 600;
+}
+.tl-content .price {
+  display: inline-block;
+  background: var(--turquoise-soft);
+  color: var(--jungle-light);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  margin-left: 0.25rem;
+}
+.tl-content p {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  margin-top: 0.25rem;
+  line-height: 1.55;
+}
+
+/* ALERTS */
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+.alert.warning { background: #fff3e0; color: #7a5000; }
+.alert.tip { background: var(--turquoise-soft); color: var(--jungle-light); }
+.alert.booking { background: var(--coral-soft); color: #8b3a2a; }
+.alert-icon { flex-shrink: 0; font-size: 1rem; }
+
+/* DINNER CARD */
+.dinner {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed rgba(0,0,0,0.1);
+}
+
+.dinner-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-light);
+  margin-bottom: 0.35rem;
+}
+
+.dinner-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--jungle);
+}
+
+.dinner-desc {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  margin-top: 0.2rem;
+}
+
+.dinner-price {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-top: 0.25rem;
+}
+
+.dinner-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  margin-right: 0.35rem;
+}
+
+.badge-michelin { background: #c0392b; color: white; }
+.badge-guide { background: var(--jungle); color: white; }
+.badge-cash { background: var(--gold-soft); color: #7a5000; }
+
+/* DINING TABLE */
+.dining-table {
+  width: 100%;
+  margin: 2rem 0;
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+
+.dining-table th {
+  background: var(--jungle);
+  color: var(--white);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.dining-table td {
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  vertical-align: top;
+}
+
+.dining-table tr:last-child td { border-bottom: none; }
+.dining-table .rest-name { font-weight: 600; color: var(--jungle); }
+
+/* LOGISTICS SECTION */
+.logistics {
+  background: var(--jungle);
+  color: var(--white);
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin: 2rem 0;
+}
+
+.logistics h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--gold);
+}
+
+.logistics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .logistics-grid { grid-template-columns: 1fr; }
+}
+
+.logistics-item h4 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--turquoise);
+  margin-bottom: 0.5rem;
+}
+
+.logistics-item p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.6;
+}
+
+/* CASH TABLE */
+.cash-table {
+  width: 100%;
+  margin: 1rem 0;
+  border-collapse: collapse;
+}
+
+.cash-table th {
+  color: var(--turquoise);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 0;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.cash-table td {
+  padding: 0.6rem 0;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.8);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.cash-table .total td {
+  color: var(--gold);
+  font-weight: 700;
+  border-bottom: none;
+  padding-top: 0.75rem;
+}
+
+/* CHECKLIST */
+.checklist {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+
+.checklist h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--jungle);
+  margin-bottom: 1.5rem;
+}
+
+.checklist h4 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--turquoise);
+  margin: 1.25rem 0 0.5rem;
+}
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.35rem 0;
+  font-size: 0.85rem;
+}
+
+.check-item.done { color: var(--text-light); text-decoration: line-through; opacity: 0.6; }
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-light);
+  font-size: 0.8rem;
+}
+
+.footer .version {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--jungle);
+  margin-bottom: 0.5rem;
+}
+
+/* DIVIDER */
+.section-divider {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-divider span {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--sand-dark);
+  border-radius: 1px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .day-card { padding: 1.5rem; }
+  .tl-time { min-width: 48px; font-size: 0.75rem; }
+  .nav a { font-size: 0.72rem; padding: 0.35rem 0.6rem; }
+  .logistics { padding: 1.5rem; }
+  .checklist { padding: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-flag">🇲🇽</div>
+  <h1>Mexico 2026</h1>
+  <div class="hero-sub">Tulum · Holbox · Cancún</div>
+  <div class="hero-details">20 de fevereiro — 2 de março</div>
+  <div class="hero-names">Felipe & Flávia</div>
+</section>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#tulum">🏝 Tulum</a>
+    <a href="#dia1">D1</a>
+    <a href="#dia2">D2</a>
+    <a href="#dia3">D3</a>
+    <a href="#dia4">D4</a>
+    <a href="#dia5">D5</a>
+    <a href="#holbox">🏝 Holbox</a>
+    <a href="#dia6">D6</a>
+    <a href="#dia7">D7</a>
+    <a href="#dia8">D8</a>
+    <a href="#cancun">🏖 Cancún</a>
+    <a href="#jantares">🍽</a>
+    <a href="#dinheiro">💰</a>
+    <a href="#checklist">🎒</a>
+  </div>
+</nav>
+
+<!-- TULUM -->
+<div class="container">
+
+<div class="dest-header" id="tulum">
+  <div class="dest-emoji">🏝</div>
+  <h2>Tulum</h2>
+  <div class="dest-meta">5 noites · 20 a 25 de fevereiro</div>
+  <div class="dest-hotel">🏨 Sana Tulum Beachfront Boutique Hotel · R$ 14.686 · Confirmado ✓</div>
+</div>
+
+<!-- DIA 1 -->
+<div class="day-card tulum" id="dia1">
+  <div class="day-header">
+    <div class="day-number">D1</div>
+    <div class="day-title-group">
+      <div class="day-title">✈️ Chegada + Kaan Luum</div>
+      <div class="day-date">Sexta, 20 de fevereiro</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">11h</div>
+    <div class="tl-content">
+      <strong>Pouso em Cancún</strong> — Terminal 2 Internacional
+      <p>Ligar celular, conectar WiFi. Avant Rent a Car contata via WhatsApp.</p>
+    </div>
+  </div>
+
+  <div class="alert warning">
+    <span class="alert-icon">⚠️</span>
+    <div><strong>AVANT RENT A CAR</strong> — Sair do terminal, virar À DIREITA direção "Coffee Shop", andar ~35m passando "Meeting Point", atravessar área cercada. Agente espera DO LADO DE FORA com placa + polo branca. NÃO atender ninguém sem a placa! WhatsApp: +52(998)865-4276</div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">11:30</div>
+    <div class="tl-content">
+      <strong>ATM Santander ou Banamex</strong> — Sacar ~5.000 MXN
+      <p>RECUSAR conversão dinâmica (DCC). Economiza 5-8%.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">11:30</div>
+    <div class="tl-content">
+      <strong>Estrada Cancún → Tulum</strong>
+      <p>~2h pela Highway 307. Direção simples, pista dupla.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">14h</div>
+    <div class="tl-content">
+      <strong>Lagoa Kaan Luum</strong> <span class="price">300 MXN/pessoa · cash only</span>
+      <p>15 min ao sul de Tulum. Lagoa turquesa com cenote profundo no centro. Pouco turista. Perfeita pra chegar e relaxar.</p>
+    </div>
+  </div>
+
+  <div class="alert warning">
+    <span class="alert-icon">⏰</span>
+    <div>Fecha às 16h! Chegar até 14h para aproveitar.</div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">16:30</div>
+    <div class="tl-content">
+      <strong>Check-in + Praia</strong>
+      <p>Instalar no hotel, caminhar pela praia no fim de tarde.</p>
+    </div>
+  </div>
+
+  <div class="dinner">
+    <div class="dinner-label">🍽 Jantar</div>
+    <div class="dinner-name">Mestixa</div>
+    <span class="dinner-badge badge-michelin">Michelin Bib Gourmand</span>
+    <div class="dinner-desc">Fusão asiática-mexicana no Pueblo. Birria ramen, bao de cochinita pibil, dumplings de camarão. Ambiente trendy com murais.</div>
+    <div class="dinner-price">~R$ 450-750 (2 pax com drinks)</div>
+  </div>
+
+  <div class="alert booking">
+    <span class="alert-icon">📌</span>
+    <div><strong>RESERVAR:</strong> Mestixa via Resy ou WhatsApp +52 984 182 7283</div>
+  </div>
+</div>
+
+<!-- DIA 2 -->
+<div class="day-card tulum" id="dia2">
+  <div class="day-header">
+    <div class="day-number">D2</div>
+    <div class="day-title-group">
+      <div class="day-title">🏛️ Ruínas + Cultura + Pôr do Sol</div>
+      <div class="day-date">Sábado, 21 de fevereiro</div>
+    </div>
+  </div>
+  <div class="day-subtitle">Dia cultural sem cenotes. 4 paradas com ritmo confortável.</div>
+
+  <div class="tl-item">
+    <div class="tl-time">8h</div>
+    <div class="tl-content">
+      <strong>Ruínas de Tulum + Playa Ruinas</strong> <span class="price">80 MXN/pessoa</span>
+      <p>Chegar na abertura pra evitar multidão. Explorar as ruínas (~1,5h) + descer pra Playa Ruinas.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">11h</div>
+    <div class="tl-content">
+      <strong>Ven a la Luz (Ahau Tulum)</strong> <span class="price">~$3 USD</span>
+      <p>Escultura icônica na zona de praia, ~10 min ao sul das ruínas. Parada rápida para fotos.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">12-13h</div>
+    <div class="tl-content">
+      <strong>Almoço na zona de praia</strong>
+      <p>Kitchen Table ou Matcha Mama.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">13-16h</div>
+    <div class="tl-content">
+      <strong>Tempo livre</strong>
+      <p>Praia, descanso, explorar lojas na zona de praia.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">16h</div>
+    <div class="tl-content">
+      <strong>SFER IK Museum (Azulik)</strong> <span class="price">400 MXN/pessoa</span>
+      <p>Museu de arte imersivo. Arquitetura orgânica incrível. Reservar ~1-1,5h.</p>
+    </div>
+  </div>
+
+  <div class="dinner">
+    <div class="dinner-label">🍽 Sunset + Jantar</div>
+    <div class="dinner-name">Kin Toh by AZULIK — 17:30</div>
+    <div class="dinner-desc">Cocktails em ninhos suspensos sobre a selva. Experiência imperdível. Consumo mínimo pode se aplicar.</div>
+    <div class="dinner-price">~R$ 700-1.000 (2 pax)</div>
+  </div>
+
+  <div class="alert booking">
+    <span class="alert-icon">📌</span>
+    <div><strong>RESERVAR:</strong> Kin Toh — reservar com antecedência, lotado no pôr do sol</div>
+  </div>
+</div>
+
+<!-- DIA 3 -->
+<div class="day-card tulum" id="dia3">
+  <div class="day-header">
+    <div class="day-number">D3</div>
+    <div class="day-title-group">
+      <div class="day-title">🤿 Cenotes Subterrâneos + Akumal</div>
+      <div class="day-date">Domingo, 22 de fevereiro</div>
+    </div>
+  </div>
+  <div class="day-subtitle">Dos cenotes mais impressionantes da região + nado com tartarugas.</div>
+
+  <div class="tl-item">
+    <div class="tl-time">8:30</div>
+    <div class="tl-content">
+      <strong>Cenote Dos Ojos</strong> <span class="price">400-700 MXN</span>
+      <p>30 min de Tulum. Sistema de cavernas submersas mais longo do mundo. Snorkel entre estalactites em água cristalina. Cenote mais essencial da viagem.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">10:30</div>
+    <div class="tl-content">
+      <strong>Cenote Sac Actun</strong> <span class="price">~400 MXN</span>
+      <p>5 min de Dos Ojos. Tour guiado em caverna escura com lanternas, estalactites e estalagmites. ~1h.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">12:30</div>
+    <div class="tl-content"><strong>Almoço</strong><p>Na estrada ou em Akumal.</p></div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">14h</div>
+    <div class="tl-content">
+      <strong>Akumal — Tartarugas marinhas</strong> <span class="price">~$40-50 USD/pessoa</span>
+      <p>Tour guiado OBRIGATÓRIO (regras de conservação). Máximo 1h na água, zonas restritas.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">16:30</div>
+    <div class="tl-content">
+      <strong>Casa Malca — Drinks</strong>
+      <p>Antiga mansão de Pablo Escobar. Cocktails no bar + explorar arte e propriedade. Aberto para não-hóspedes.</p>
+    </div>
+  </div>
+
+  <div class="dinner">
+    <div class="dinner-label">🍽 Jantar</div>
+    <div class="dinner-name">NÜ Tulum</div>
+    <span class="dinner-badge badge-guide">Michelin Guide</span>
+    <div class="dinner-desc">Restaurante na selva, todo iluminado por velas, céu aberto sob as estrelas. Farm-to-table. Polvo grelhado, ceviche com leche de tigre. O mais romântico da viagem.</div>
+    <div class="dinner-price">~R$ 900-1.500 (2 pax com vinho/cocktails)</div>
+  </div>
+
+  <div class="alert booking">
+    <span class="alert-icon">📌</span>
+    <div><strong>RESERVAR:</strong> NÜ Tulum — OpenTable ou email reservations@nutulum.com | Tel: +52 984 134 3954. Fecha terça-feira. Domingo funciona 18h-21:30.</div>
+  </div>
+</div>
+
+<!-- DIA 4 -->
+<div class="day-card tulum" id="dia4">
+  <div class="day-header">
+    <div class="day-number">D4</div>
+    <div class="day-title-group">
+      <div class="day-title">💧 Gran Cenote + Rio Secreto</div>
+      <div class="day-date">Segunda, 23 de fevereiro</div>
+    </div>
+  </div>
+
+  <div class="alert tip">
+    <span class="alert-icon">✔️</span>
+    <div>Segunda-feira = Gran Cenote VAZIO. Sábado seria lotado. Melhor dia da semana!</div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">8:10</div>
+    <div class="tl-content">
+      <strong>Gran Cenote</strong> <span class="price">500 MXN</span>
+      <p>10 min do centro, direção Cobá. Mix de área aberta + túneis de caverna. Tartarugas, água cristalina. Última entrada 16:15.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">10h</div>
+    <div class="tl-content">
+      <strong>Cenote Calavera</strong> <span class="price">~200 MXN</span>
+      <p>5 min do Gran Cenote. Três aberturas em formato de caveira. Plataformas para salto. Menor e mais íntimo.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">11:30</div>
+    <div class="tl-content"><strong>Retorno + Almoço em Tulum</strong><p>Descanso e almoço leve antes de Rio Secreto.</p></div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">13:30</div>
+    <div class="tl-content"><strong>Saída para Rio Secreto</strong><p>45 min de Tulum, direção Playa del Carmen.</p></div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">14:30</div>
+    <div class="tl-content">
+      <strong>Rio Secreto</strong> <span class="price">$89-119 USD + $20 taxa ambiental</span>
+      <p>Rio subterrâneo com estalactites. Tour guiado de caminhada + nado em cavernas. Experiência única no mundo. ~2h.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">17:30</div>
+    <div class="tl-content"><strong>Retorno a Tulum</strong><p>45 min de volta.</p></div>
+  </div>
+
+  <div class="dinner">
+    <div class="dinner-label">🍽 Jantar</div>
+    <div class="dinner-name">Hartwood</div>
+    <span class="dinner-badge badge-guide">Michelin Guide</span>
+    <span class="dinner-badge badge-cash">Cash Only</span>
+    <div class="dinner-desc">O OG de Tulum (desde 2010). Open-air jungle, tudo na brasa e forno a lenha. Menu muda todo dia conforme ingredientes frescos. Sem eletricidade, puro fogo.</div>
+    <div class="dinner-price">~R$ 600-900 (2 pax) · Somente pesos!</div>
+  </div>
+
+  <div class="alert booking">
+    <span class="alert-icon">📌</span>
+    <div><strong>RESERVAR:</strong> Rio Secreto em riosecreto.com ($89 USD self-transport)<br><strong>RESERVAR:</strong> Hartwood — email reservations@hartwoodtulum.com · Aberto 17:30-22h</div>
+  </div>
+</div>
+
+<!-- DIA 5 -->
+<div class="day-card tulum" id="dia5">
+  <div class="day-header">
+    <div class="day-number">D5</div>
+    <div class="day-title-group">
+      <div class="day-title">🌿 Sian Ka'an + Despedida</div>
+      <div class="day-date">Terça, 24 de fevereiro</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">7:30</div>
+    <div class="tl-content">
+      <strong>Sian Ka'an + Ruínas de Muyil</strong> <span class="price">~$80-120 USD</span>
+      <p>Reserva da Biosfera UNESCO. Tour de meio dia (~4-5h): ruínas maias + barco pelos canais maias + flutuando no rio.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">13h</div>
+    <div class="tl-content"><strong>Retorno + Almoço</strong><p>Almoço tranquilo em Tulum.</p></div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">14-17h</div>
+    <div class="tl-content"><strong>Tempo livre</strong><p>Arrumar malas, última praia, lembranças.</p></div>
+  </div>
+
+  <div class="dinner">
+    <div class="dinner-label">🍽 Último Jantar em Tulum</div>
+    <div class="dinner-name">Arca</div>
+    <span class="dinner-badge badge-guide">Michelin Guide</span>
+    <div class="dinner-desc">Chef formado no Noma Copenhagen. Farm-to-table na selva com incenso e velas. Sabores mexicanos explosivos com técnica de alta gastronomia. A despedida perfeita.</div>
+    <div class="dinner-price">~R$ 900-1.350 (2 pax com drinks)</div>
+  </div>
+
+  <div class="alert booking">
+    <span class="alert-icon">📌</span>
+    <div><strong>RESERVAR:</strong> Sian Ka'an tour — Mexico Kan Tours ou similar, meio dia, vagas limitadas<br><strong>RESERVAR:</strong> Arca — OpenTable ou Resy</div>
+  </div>
+</div>
+
+<!-- HOLBOX -->
+<div class="section-divider"><span></span></div>
+
+<div class="dest-header" id="holbox">
+  <div class="dest-emoji">🦩</div>
+  <h2>Holbox</h2>
+  <div class="dest-meta">3 noites · 25 a 28 de fevereiro</div>
+  <div class="dest-hotel">🏨 Hotel Villas Flamingos · R$ 4.598 · Confirmado ✓</div>
+</div>
+
+<div class="alert warning" style="max-width:780px;margin:0 auto 1.5rem;">
+  <span class="alert-icon">💵</span>
+  <div>Chegar em Holbox com 10.000-12.000 MXN em dinheiro. ATMs na ilha são INSEGUROS (frequentemente vazios).</div>
+</div>
+
+<!-- DIA 6 -->
+<div class="day-card holbox" id="dia6">
+  <div class="day-header">
+    <div class="day-number">D6</div>
+    <div class="day-title-group">
+      <div class="day-title">⛴️ Transfer Tulum → Holbox</div>
+      <div class="day-date">Quarta, 25 de fevereiro</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">7h</div>
+    <div class="tl-content"><strong>Saída de Tulum</strong><p>3-3,5h de carro até Chiquelá. Tanque cheio antes de sair.</p></div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">10-10:30</div>
+    <div class="tl-content">
+      <strong>Chiquelá</strong> <span class="price">300 MXN/pessoa (só ida)</span>
+      <p>Estacionar carro (100-150 MXN/dia). Ferry: Holbox Express ou 9 Hermanos, a cada 30 min.</p>
+    </div>
+  </div>
+
+  <div class="alert warning">
+    <span class="alert-icon">🚗</span>
+    <div>Não deixar NADA de valor no carro — furto é comum em Chiquelá.</div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">11h</div>
+    <div class="tl-content">
+      <strong>Chegada Holbox</strong>
+      <p>Check-in. Alugar carrinho de golfe (1.000-1.500 MXN/dia) ou bicicleta (150-250 MXN/dia). Sem carros na ilha, ruas de areia.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">Tarde</div>
+    <div class="tl-content"><strong>Explorar a ilha</strong><p>Murais de street art. Caminhar pelo centro. Ritmo slow.</p></div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">17:30</div>
+    <div class="tl-content"><strong>Pôr do sol</strong><p>Pier principal ou Zomay Bar.</p></div>
+  </div>
+
+  <div class="dinner">
+    <div class="dinner-label">🍽 Jantar</div>
+    <div class="dinner-name">Explorar restaurantes locais</div>
+    <div class="dinner-desc">La Tapatia para autêntico mexicano barato.</div>
+  </div>
+</div>
+
+<!-- DIA 7 -->
+<div class="day-card holbox" id="dia7">
+  <div class="day-header">
+    <div class="day-number">D7</div>
+    <div class="day-title-group">
+      <div class="day-title">🦩 Tour 3 Ilhas + Flamingos</div>
+      <div class="day-date">Quinta, 26 de fevereiro</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">8-12h</div>
+    <div class="tl-content">
+      <strong>Tour 3 Ilhas</strong> <span class="price">~$40-60 USD/pessoa</span>
+      <p>Isla Pájaros (30+ espécies, flamingos), Cenote Yalahu (acessível de barco), Isla Pasión (praia paradisíaca).</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">14h</div>
+    <div class="tl-content">
+      <strong>Punta Mosquito</strong>
+      <p>Banco de areia na maré baixa. Flamingos selvagens. Verificar horário da maré.</p>
+    </div>
+  </div>
+
+  <div class="alert warning">
+    <span class="alert-icon">⚠️</span>
+    <div>Acesso a Punta Mosquito pode estar restrito (erosão/conservação). Checar com hotel ao chegar.</div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">16h</div>
+    <div class="tl-content"><strong>Praia + Helartesano</strong><p>Melhor sorvete da ilha.</p></div>
+  </div>
+
+  <div class="dinner">
+    <div class="dinner-label">🍽 Jantar</div>
+    <div class="dinner-name">Roots Pizzas a La Leña ou Quartieri Holbox</div>
+    <div class="dinner-desc">Pizza de LAGOSTA. Verificar disponibilidade da temporada. ~$40 USD.</div>
+  </div>
+</div>
+
+<!-- DIA 8 -->
+<div class="day-card holbox" id="dia8">
+  <div class="day-header">
+    <div class="day-number">D8</div>
+    <div class="day-title-group">
+      <div class="day-title">🛶 Kayak nos Mangues + Bioluminescência</div>
+      <div class="day-date">Sexta, 27 de fevereiro</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">9h</div>
+    <div class="tl-content">
+      <strong>Tour de kayak nos mangues</strong> <span class="price">~$40-50 USD</span>
+      <p>Crocodilos, flamingos, raias, pelicanos. Tour guiado ~2-3h.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">13h</div>
+    <div class="tl-content"><strong>Almoço</strong><p>La Tapatia ou explorar opções locais.</p></div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">Tarde</div>
+    <div class="tl-content"><strong>Praia em Punta Cocos</strong><p>Lado oeste da ilha. Mais tranquilo, menos gente.</p></div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">20h</div>
+    <div class="tl-content">
+      <strong>Tour de bioluminescência</strong> <span class="price">~$30-50 USD</span>
+      <p>Punta Cocos. Pico é jun-ago. Em fevereiro pode ser fraco ou invisível — perguntar aos locais antes de reservar.</p>
+    </div>
+  </div>
+
+  <div class="alert warning">
+    <span class="alert-icon">🦟</span>
+    <div>Mosquitos FORTES ao pôr do sol/noite perto dos mangues. Exposis Extreme é essencial.</div>
+  </div>
+</div>
+
+<!-- CANCÚN -->
+<div class="section-divider"><span></span></div>
+
+<div class="dest-header" id="cancun">
+  <div class="dest-emoji">🏖</div>
+  <h2>Cancún</h2>
+  <div class="dest-meta">2 noites · 28 de fevereiro a 2 de março</div>
+  <div class="dest-hotel">🏨 Presidente InterContinental · R$ 3.068 · Confirmado ✓</div>
+</div>
+
+<!-- DIA 9 -->
+<div class="day-card cancun" id="dia9">
+  <div class="day-header">
+    <div class="day-number">D9</div>
+    <div class="day-title-group">
+      <div class="day-title">🚗 Holbox → Cancún</div>
+      <div class="day-date">Sábado, 28 de fevereiro</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">8-9h</div>
+    <div class="tl-content">
+      <strong>Ferry Holbox → Chiquelá</strong> <span class="price">300 MXN/pessoa</span>
+      <p>Ferries começam às 5h. A cada 30 min. 25 min travessia.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">9-12h</div>
+    <div class="tl-content"><strong>Chiquelá → Cancún</strong><p>~2,5-3h de carro.</p></div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">Tarde</div>
+    <div class="tl-content"><strong>Check-in + Cancún</strong><p>Zona Hotelera. Descansar, praia do hotel.</p></div>
+  </div>
+</div>
+
+<!-- DIA 10 -->
+<div class="day-card cancun" id="dia10">
+  <div class="day-header">
+    <div class="day-number">D10</div>
+    <div class="day-title-group">
+      <div class="day-title">☀️ Dia livre em Cancún</div>
+      <div class="day-date">Domingo, 1 de março</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">Flex</div>
+    <div class="tl-content">
+      <strong>Dia flexível</strong>
+      <p>Praia, shopping, últimas compras, ou descanso antes do voo.</p>
+    </div>
+  </div>
+
+  <div class="alert tip">
+    <span class="alert-icon">💡</span>
+    <div><strong>Sugestão:</strong> Isla Mujeres (ferry ~20 min da Zona Hotelera) — mais charmosa que Cancún. Ou MUSA (snorkel com esculturas submarinas).</div>
+  </div>
+</div>
+
+<!-- DIA 11 -->
+<div class="day-card cancun" id="dia11">
+  <div class="day-header">
+    <div class="day-number">D11</div>
+    <div class="day-title-group">
+      <div class="day-title">✈️ Volta para casa</div>
+      <div class="day-date">Segunda, 2 de março</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-time">Manhã</div>
+    <div class="tl-content"><strong>Devolver carro no aeroporto. Voo de volta.</strong><p>Bom méxico! 🇲🇽</p></div>
+  </div>
+</div>
+
+<!-- JANTARES -->
+<div class="section-divider"><span></span></div>
+
+<h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;text-align:center;color:var(--jungle);margin:2rem 0 0.5rem;" id="jantares">🍽 Jantares em Tulum</h3>
+<p style="text-align:center;color:var(--text-light);font-size:0.9rem;margin-bottom:1.5rem;">Todos Michelin-listados ou equivalente. Do casual ao fine dining.</p>
+
+<table class="dining-table">
+  <thead>
+    <tr>
+      <th>Dia</th>
+      <th>Restaurante</th>
+      <th>Vibe</th>
+      <th>~2 pax</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1 (Sex)</td>
+      <td><span class="rest-name">Mestixa</span><br><span class="dinner-badge badge-michelin" style="margin:0">Bib Gourmand</span></td>
+      <td>Fusion trendy, Pueblo</td>
+      <td>R$ 450-750</td>
+    </tr>
+    <tr>
+      <td>2 (Sáb)</td>
+      <td><span class="rest-name">Kin Toh</span></td>
+      <td>Sunset na selva</td>
+      <td>R$ 700-1.000</td>
+    </tr>
+    <tr>
+      <td>3 (Dom)</td>
+      <td><span class="rest-name">NÜ Tulum</span><br><span class="dinner-badge badge-guide" style="margin:0">Michelin Guide</span></td>
+      <td>Jungle candlelit, romântico</td>
+      <td>R$ 900-1.500</td>
+    </tr>
+    <tr>
+      <td>4 (Seg)</td>
+      <td><span class="rest-name">Hartwood</span><br><span class="dinner-badge badge-guide" style="margin:0">Michelin Guide</span> <span class="dinner-badge badge-cash" style="margin:0">Cash</span></td>
+      <td>Wood-fire jungle, OG</td>
+      <td>R$ 600-900</td>
+    </tr>
+    <tr>
+      <td>5 (Ter)</td>
+      <td><span class="rest-name">Arca</span><br><span class="dinner-badge badge-guide" style="margin:0">Michelin Guide</span></td>
+      <td>Noma-trained, despedida</td>
+      <td>R$ 900-1.350</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- LOGISTICS -->
+<div class="logistics" id="dinheiro">
+  <h3>💰 Dinheiro & Logística</h3>
+
+  <h4 style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--turquoise);margin-bottom:0.75rem;">Estimativa de Cash (pesos)</h4>
+
+  <table class="cash-table">
+    <thead>
+      <tr><th>Etapa</th><th>Principais gastos</th><th>Estimativa</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tulum (5 dias)</td>
+        <td>Cenotes, Kaan Luum, ruínas, estacionamentos, gasolina, gorjetas</td>
+        <td>~9.000-11.000</td>
+      </tr>
+      <tr>
+        <td>Holbox (3 dias)</td>
+        <td>Ferry, carrinho de golfe, tours, lanches</td>
+        <td>~10.000-12.500</td>
+      </tr>
+      <tr>
+        <td>Cancún (2 dias)</td>
+        <td>Transporte, alimentação, extras</td>
+        <td>~3.000-5.000</td>
+      </tr>
+      <tr class="total">
+        <td>TOTAL</td>
+        <td></td>
+        <td>~22.000-28.500 MXN<br>(~USD 1.300-1.700)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:1.5rem;padding:0.75rem 1rem;background:rgba(255,255,255,0.08);border-radius:10px;font-size:0.82rem;color:rgba(255,255,255,0.7);">
+    ⚠️ ATMs: Santander ou Banamex (menores taxas ~30-35 MXN). SEMPRE recusar conversão dinâmica (DCC) — economiza 5-8%.
+  </div>
+
+  <div class="logistics-grid" style="margin-top:1.5rem;">
+    <div class="logistics-item">
+      <h4>📱 Conectividade</h4>
+      <p>eSIM Holafly — dados ilimitados, ~USD 30-35 por 10 dias. Rede Telcel. Instalar antes de sair, ativar ao pousar. WhatsApp funciona.</p>
+    </div>
+    <div class="logistics-item">
+      <h4>🚗 Transporte</h4>
+      <p>Avant Rent a Car — Confirmado. Seguro completo, km livre, 2 motoristas. Depósito $0.<br>WhatsApp: +52(998)865-4276</p>
+    </div>
+    <div class="logistics-item">
+      <h4>⛴ Ferry Holbox</h4>
+      <p>Holbox Express ou 9 Hermanos. A cada 30 min. 300 MXN/pessoa/trecho. 25 min travessia. Horário: 5h-20:30.</p>
+    </div>
+    <div class="logistics-item">
+      <h4>🏨 Total Hospedagem</h4>
+      <p>R$ 22.352<br>Tulum R$ 14.686 + Holbox R$ 4.598 + Cancún R$ 3.068</p>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKLIST -->
+<div class="checklist" id="checklist">
+  <h3>🎒 Checklist Antes de Sair</h3>
+
+  <h4>📌 Reservas Obrigatórias</h4>
+  <div class="check-item">☐ Mestixa (Dia 1, 20/02) — Resy ou WhatsApp +52 984 182 7283</div>
+  <div class="check-item">☐ Kin Toh sunset (Dia 2, 21/02) — Reservar com dias de antecedência</div>
+  <div class="check-item">☐ NÜ Tulum (Dia 3, 22/02) — OpenTable ou +52 984 134 3954</div>
+  <div class="check-item">☐ Rio Secreto (Dia 4, 23/02) — riosecreto.com — $89 USD + $20 taxa</div>
+  <div class="check-item">☐ Hartwood (Dia 4, 23/02) — reservations@hartwoodtulum.com · Cash only!</div>
+  <div class="check-item">☐ Sian Ka'an + Muyil (Dia 5, 24/02) — Mexico Kan Tours, meio dia</div>
+  <div class="check-item">☐ Arca (Dia 5, 24/02) — OpenTable ou Resy</div>
+  <div class="check-item done">☑ eSIM Holafly — Comprado ✓ — instalar antes do embarque</div>
+  <div class="check-item">☐ Pagar depósito Avant Rent a Car — Link PayPal enviado</div>
+
+  <h4>📋 Documentos</h4>
+  <div class="check-item done">☑ Passaporte português (Felipe) — dispensa visto ✓</div>
+  <div class="check-item done">☑ Passaporte italiano (Flávia) — dispensa visto ✓</div>
+  <div class="check-item done">☑ CNH brasileira ✓</div>
+  <div class="check-item done">☑ Seguro viagem — Remote Health ✓</div>
+  <div class="check-item done">☑ Confirmações de hotel impressas ✓</div>
+
+  <h4>🧳 Mala — Essenciais</h4>
+  <div class="check-item">☐ Protetor solar BIODEGRADÁVEL (obrigatório nos cenotes)</div>
+  <div class="check-item">☐ Repelente Exposis Extreme (Icaridin, 10h) — essencial para Holbox</div>
+  <div class="check-item">☐ Comprar papete de água em Tulum Pueblo no Dia 1 (~200-300 MXN)</div>
+  <div class="check-item">☐ Dry bag (celular/dinheiro em cenotes e barcos)</div>
+  <div class="check-item">☐ Cadeado pequeno (armários dos cenotes)</div>
+  <div class="check-item">☐ Toalha de microfibra</div>
+  <div class="check-item">☐ Máscara de snorkel própria</div>
+  <div class="check-item">☐ Sony ZV-E10 + lente 16-50mm + 2 baterias extras + 2 SD cards</div>
+  <div class="check-item">☐ Comprar capinha estanque de celular em Tulum (~100-150 MXN)</div>
+  <div class="check-item">☐ Avene Mat Perfect FPS 60 (40g, rosto)</div>
+  <div class="check-item">☐ Power bank + cabos</div>
+  <div class="check-item">☐ Adaptador tomada tipo A/B</div>
+  <div class="check-item">☐ Sacos a vácuo (NÃO para camisas de linho!)</div>
+  <div class="check-item">☐ Farmácia: Imodium, Dorflex, Buscopan, anti-histamínico, band-aids, pós-sol</div>
+
+  <h4>👕 Roupas (10 dias)</h4>
+  <div class="check-item">• 5 bermudas (tactel/dry-fit)</div>
+  <div class="check-item">• 6 camisetas</div>
+  <div class="check-item">• 3 camisas de linho manga curta (enrolar, NÃO saco a vácuo)</div>
+  <div class="check-item">• 1 calça leve + 1 moletom/jaqueta (cenotes são frios!)</div>
+  <div class="check-item">• 2 sungas + cuecas/meias</div>
+  <div class="check-item">• Birkenstock Kevlar + Yeezy 350 (avião) + papete (cenotes)</div>
+</div>
+
+<div class="footer">
+  <div class="version">Roteiro v4.0</div>
+  Revisado em 19/02/2026 · Bom méxico! 🇲🇽
+</div>
+
+</div><!-- container -->
+</body>
+</html>
