@@ -33,9 +33,10 @@ body {
 
 /* ===== HERO ===== */
 .hero {
-  background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 40%, #14919B 100%);
+  background: linear-gradient(180deg, rgba(6,84,86,0.55) 0%, rgba(26,35,50,0.75) 100%),
+              url('https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=1400&q=80&auto=format') center 40%/cover no-repeat;
   color: white;
-  padding: 60px 24px 50px;
+  padding: 80px 24px 60px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -43,11 +44,8 @@ body {
 .hero::before {
   content: '';
   position: absolute;
-  top: -50%; left: -50%;
-  width: 200%; height: 200%;
-  background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.06) 0%, transparent 50%),
-              radial-gradient(circle at 70% 30%, rgba(201,168,76,0.1) 0%, transparent 40%);
-  animation: shimmer 20s ease-in-out infinite alternate;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 50% 80%, rgba(13,115,119,0.2) 0%, transparent 60%);
 }
 @keyframes shimmer {
   from { transform: rotate(0deg); }
